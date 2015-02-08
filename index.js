@@ -1,7 +1,6 @@
 module.exports = ExpressQSParser;
 
 var basicConfig = {
-	params: {},
 	storage: 'parsedQuery'
 };
 
@@ -18,7 +17,7 @@ var basicConfig = {
 function ExpressQSParser(config) {
 
 	var storageName = '', parametersNames, params;
-	params = config.params || basicConfig.params;
+	params = config.params || {};
 	storageName = config.storage || basicConfig.storage;
 	parametersNames = Object.keys(params);
 	

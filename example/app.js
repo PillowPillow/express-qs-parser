@@ -12,13 +12,23 @@ var app = express(),
 		storage: 'parsedQuery'
 	});
 
+//--------------------------------------------------------------------
+
+// applies the parser on all routes
 app.use(qsParserMiddleware);
 
 var router = express.Router();
-
 router.get('/', function(request, response) {
 	response.status(200).json(request.parsedQuery);
 });
+
+//--------------------------------------------------------------------
+
+// router.get('/', qsParserMiddleware, function(request, response) {
+// 	response.status(200).json(request.parsedQuery);
+// });
+
+//--------------------------------------------------------------------
 
 app.use(router);
 
